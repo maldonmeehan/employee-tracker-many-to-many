@@ -1,0 +1,17 @@
+<h1><%= @division.name() %></h1>
+
+<% if @division.employees().any?() %>
+  <h3>Here are all the employees in this division:</h3>
+
+  <ul>
+    <% @division.employees().each() do |employee| %>
+      <li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit">Update this employee's name</a></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>There are no employees in this division!</p>
+  <% end %>
+
+  <p><a href="/divisions/<%= @division.id() %>/edit">Edit <%= @division.name() %> division</a></p>
+  <p><a href="/">Return to Main Page</a></p>

@@ -1,0 +1,48 @@
+<h1>Employee Tracker</h1>
+
+<%if @employees.any?() %>
+<h2>Here are all your employees:</h2>
+<ul>
+  <% @employees.each do |employee| %>
+    <li><%= employee.name %></li>
+  <% end %>
+</ul>
+<% else %>
+<h2>You have no employees yet</h2>
+<% end %>
+
+<% if @divisions.any?() %>
+<h2>Here are your divisions- click on a division to see its employees:</h2>
+<ul>
+  <% @divisions.each do |division| %>
+  <li><a href="/divisions/<%= division.id() %>"><%= division.name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<h2>You have no divisions yet</h2>
+<% end %>
+
+<h2> Add a new employee:</h2>
+
+<form action="/employees" method="post">
+  <label for="name">Employee's Name:</label>
+  <input id="name" name="name" type="text">
+
+  <label for="division_id">Select a Division:</label>
+  <select id='division_id' name='division_id' type='text'>
+  <% @divisions.each() do |division| %>
+    <option value="<%= division.id()%>"> <%= division.name() %> </option>
+  <% end %>
+  </select>
+
+  <button type="submit">Add employee</button>
+</form>
+
+<h2>Create a new division:</h2>
+
+<form action="/divisions" method="post">
+  <label for="name">What's the name of the division?</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add division</button>
+</form>
