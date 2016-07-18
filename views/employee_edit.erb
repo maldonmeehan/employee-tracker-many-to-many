@@ -5,6 +5,14 @@
   <label for="name">Rename this employee:</label>
   <input id="name" name="name" type="text">
 
+
+  <label for="division_id">Change their division:</label>
+  <select id='division_id' name='division_id' type='text'>
+    <% @divisions.each() do |division| %>
+    <option value="<%= division.id()%>"> <%= division.name() %> </option>
+    <% end %>
+  </select>
+
   <button type="submit">Update</button>
 </form>
 

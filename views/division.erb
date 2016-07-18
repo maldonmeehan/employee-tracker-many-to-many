@@ -5,7 +5,7 @@
 
   <ul>
     <% @division.employees().each() do |employee| %>
-      <li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit">Update this employee's name</a></li>
+      <li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit">View this employee's info</a></li>
     <% end %>
   </ul>
 

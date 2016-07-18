@@ -1,10 +1,10 @@
 <h1>Employee Tracker</h1>
 
 <%if @employees.any?() %>
-<h2>Here are all your employees:</h2>
+<h2>Here are all your employees- click on an employee to see more information:</h2>
 <ul>
-  <% @employees.each do |employee| %>
-    <li><%= employee.name %></li>
+  <% @employees.each() do |employee| %>
+    <li><a href="/employees/<%= employee.id() %>"><%= employee.name() %></li>
   <% end %>
 </ul>
 <% else %>
