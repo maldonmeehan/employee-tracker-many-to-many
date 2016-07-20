@@ -30,6 +30,7 @@ post('/divisions') do
   @division = Division.create({:name => name})
   @divisions = Division.all()
   @employees = Employee.all()
+  @projects = Project.all()
   erb(:index)
 end
 

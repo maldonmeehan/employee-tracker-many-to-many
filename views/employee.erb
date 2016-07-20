@@ -3,7 +3,7 @@
 <ul>
   <li>Name: <%= @employee.name() %></li>
   <li>Division: <%= @employee.division().name() if @employee.division() %></li>
-  <li>Projects:</li>
+  <li>Projects: <%= @employee.project().name() if @employee.project() %></li>
 </ul>
 
 <a href="/employees/<%= @employee.id() %>/edit">Edit <%= @employee.name() %>'s Information</a>
