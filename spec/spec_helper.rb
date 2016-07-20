@@ -6,6 +6,7 @@ require("sinatra/activerecord")
 require("employee")
 require("division")
 require("project")
+require("pry")
 
 RSpec.configure do |config|
   config.after(:each) do

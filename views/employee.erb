@@ -3,7 +3,16 @@
 <ul>
   <li>Name: <%= @employee.name() %></li>
   <li>Division: <%= @employee.division().name() if @employee.division() %></li>
-  <li>Projects: <%= @employee.project().name() if @employee.project() %></li>
+  <li>Projects: <% if @employee.projects().any?() %>
+    <ul>
+    <% @employee.projects().each do |project|%>
+    <li><%= project.name() %></li>
+    <% end %>
+    </ul>
+    <% else %>
+    <p> This employee has no projects yet</p>
+    <% end %>
+  </li>
 </ul>
 
 <a href="/employees/<%= @employee.id() %>/edit">Edit <%= @employee.name() %>'s Information</a>

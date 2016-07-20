@@ -46,12 +46,10 @@
   <% end %>
   </select>
 
-  <label for="project_id">Select a Project:</label>
-  <select id='project_id' name='project_id' type='text'>
+  <label for="project_id">Assign to a Project:</label>
   <% @projects.each() do |project| %>
-    <option value="<%= project.id()%>"> <%= project.name() %> </option>
-  <% end %>
-  </select>
+    <input type="checkbox" name = "project_ids[]" value="<%= project.id()%>"> <%= project.name() %>
+    <% end %>
 
   <button type="submit">Add employee</button>
 </form>

@@ -6,6 +6,7 @@ require('./lib/employee')
 require('./lib/division')
 require('./lib/project')
 require('pg')
+require('pry')
 
 get('/') do
   @employees = Employee.all()
@@ -17,8 +18,8 @@ end
 post('/employees') do
   name = params.fetch('name')
   division_id = params["division_id"].to_i()
-  project_id = params["project_id"].to_i()
-  @employee = Employee.create({:name => name, :division_id => division_id, :project_id => project_id})
+  project_ids = params["project_ids"]
+  @employee = Employee.create({:name => name, :division_id => division_id, :project_ids => project_ids})
   @employees = Employee.all()
   @divisions = Division.all()
   @projects = Project.all()
@@ -84,11 +85,15 @@ patch("/employees/:id") do
   if division_id.==("")
     division_id = @employee.division_id()
   end
-  project_id = params["project_id"].to_i()
-  if project_id.==("")
-    project_id = @employee.project_id()
+  project_ids = params["project_ids"]
+  if project_ids.==(nil)
+    project_ids = @employee.project_ids()
   end
-  @employee.update({:name => name, :division_id => division_id, :project_id => project_id})
+  project_ids.each do |project_id|
+    project = Project.find(project_id)
+    @employee.projects.push(project)
+  end
+  @employee.update({:name => name, :division_id => division_id})
   @employees = Employee.all()
   @divisions = Division.all()
   @projects = Project.all()
