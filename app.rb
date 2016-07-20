@@ -88,15 +88,37 @@ patch("/employees/:id") do
   project_ids = params["project_ids"]
   if project_ids.==(nil)
     project_ids = @employee.project_ids()
-  end
-  project_ids.each do |project_id|
-    project = Project.find(project_id)
-    @employee.projects.push(project)
+  elsif
+    project_ids.each do |project_id|
+      project = Project.find(project_id)
+      @employee.projects.push(project)
+    end
   end
   @employee.update({:name => name, :division_id => division_id})
   @employees = Employee.all()
   @divisions = Division.all()
   @projects = Project.all()
+  erb(:success)
+end
+
+get("/employees/:id/remove") do
+  @employee = Employee.find(params.fetch("id").to_i())
+  @divisions = Division.all()
+  @projects = Project.all()
+  erb(:employee_edit)
+end
+
+patch("/employees/:id/remove") do
+  @employee = Employee.find(params.fetch('id').to_i())
+  project_ids = params["project_ids"]
+  if project_ids.==(nil)
+    project_ids = @employee.project_ids()
+  elsif
+    project_ids.each do |project_id|
+      project = Project.find(project_id)
+      @employee.projects.destroy(project)
+    end
+  end
   erb(:success)
 end
 
