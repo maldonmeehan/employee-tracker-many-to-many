@@ -8,4 +8,11 @@ describe(Employee) do
       expect(test_employee.division()).to(eq(test_division))
     end
   end
+  describe('#project') do
+    it("tells which project it belongs to") do
+      test_project = Project.create({:name => "project"})
+      test_employee = Employee.create({:name => "employee", :project_id => test_project.id})
+      expect(test_employee.project()).to(eq(test_project))
+    end
+  end
 end

@@ -1,0 +1,17 @@
+<h1><%= @project.name() %></h1>
+
+<% if @project.employees().any?() %>
+  <h3>Here are all the employees working on this project:</h3>
+
+  <ul>
+    <% @project.employees().each() do |employee| %>
+      <li><%= employee.name() %> <a href="/employees/<%= employee.id() %>/edit">View this employee's info</a></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>There are no employees working on this project right now!</p>
+  <% end %>
+
+  <p><a href="/projects/<%= @project.id() %>/edit">Edit <%= @project.name() %> project</a></p>
+  <p><a href="/">Return to Main Page</a></p>
