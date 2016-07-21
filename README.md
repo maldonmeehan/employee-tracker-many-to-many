@@ -1,4 +1,4 @@
-## Ruby Database with Active Record - Employee
+## Ruby Database with Active Record - Employee Tracker
 
 An app that lets people design and take surveys, July 19, 2016
 
@@ -68,4 +68,4 @@ If you have any questions please feel free to contact Lauren and Maldon on githu
 
 MIT License
 
-Copyright (c) 2016, **Lauren Posey & Maldon Meehan, Epicodus**
+Copyright (c) 2016, **Molly McGlone & Maldon Meehan, Epicodus**
