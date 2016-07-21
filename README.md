@@ -1,6 +1,6 @@
 ## Ruby Database with Active Record - Employee Tracker
 
-An app that lets people design and take surveys, July 19, 2016
+An app that lets people design and take surveys, July 19th, 2016
 
 By Molly McGlone & Maldon Meehan
 
@@ -22,9 +22,10 @@ Practice building a many-to-many association, clone the employees-projects repo.
 
 ## Setup/Installation Requirements
 
-Install *Stylish Salon* by cloning the repository.  
+Install *Employee Tracker* by cloning the repository.  
 ```
 $ git clone https://github.com/maldonmeehan/employee-tracker-many-to-many.git
+or https://github.com/mollykmcglone/Employee_Tracker.git
 ```
 
 Install required gems:
@@ -39,7 +40,8 @@ $ postgres
 
 Open a new window and run:
 ```
-$ postgres
+$ rake db:create
+$ rake db:migrate
 $ rake db:test:prepare
 ```
 
@@ -56,7 +58,7 @@ No known bugs at this point
 
 ## Support and contact details
 
-If you have any questions please feel free to contact Lauren and Maldon on github
+If you have any questions please feel free to contact Maldon and Molly on github
 
 ## Technologies Used
 
